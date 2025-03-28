@@ -3,7 +3,7 @@ export default class Building {
     if (this.constructor === Building) {
       throw new TypeError('cannot instantiate abstract class');
     }
-    if (typeof this.evacuationWarningMessage !== 'function') {
+    if (typeof Object.getPrototypeOf(this).evacuationWarningMessage !== 'function') {
       throw new Error('Class extending Building must override evacuationWarningMessage');
     }
     this.sqft = sqft;
