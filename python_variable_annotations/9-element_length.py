@@ -5,8 +5,11 @@ This module Annotates the below function’s parameters and return values with t
 def element_length(lst):
     return [(i, len(i)) for i in lst]
 """
-from typing import Iterable, List, Sequence, Tuple, Union
-def element_length(lst: Iterable[Sequence[Union[str, bytes]]]) -> List[Tuple[Union[str, bytes], int]]:
+from typing import Iterable, List, Sequence, Tuple
+
+
+def element_length(lst: Iterable[Sequence]) -> List[Tuple[Sequence, int]]:
+
     """
     Returns a list of tuples containing the elements of lst and their lengths.
 
