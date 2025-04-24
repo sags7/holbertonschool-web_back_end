@@ -5,14 +5,16 @@ This module Annotates the below function’s parameters and return values with t
 def element_length(lst):
     return [(i, len(i)) for i in lst]
 """
-from typing import List, Tuple
-
-
-def element_length(lst: List[str]) -> List[Tuple[str, int]]:
+from typing import Iterable, List, Sequence, Tuple, Union
+def element_length(lst: Iterable[Sequence[Union[str, bytes]]]) -> List[Tuple[Union[str, bytes], int]]:
     """
-    Annotates the below function’s parameters and return values with the appropriate types
+    Returns a list of tuples containing the elements of lst and their lengths.
 
-    def element_length(lst):
-        return [(i, len(i)) for i in lst]
+    Args:
+        lst (Iterable[Sequence[Union[str, bytes]]]): The iterable containing elements to be processed.
+
+    Returns:
+        List[Tuple[Union[str, bytes], int]]: A list of tuples where each tuple contains an element from lst
+        and its length.
     """
     return [(i, len(i)) for i in lst]
