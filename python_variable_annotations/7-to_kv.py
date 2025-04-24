@@ -10,13 +10,14 @@ from typing import Union, Tuple
 
 
 def to_kv(k: str, v: Union[int, float]) -> Tuple[str, float]:
-  """
-  Returns a tuple consisting of k and v
+    """
+    Returns a tuple consisting of k and v
 
-  Args:
-      k (str): The string to be returned as the first element of the tuple.
-      v (int | float): The int or float to be squared and returned as the second element of the tuple.
-  Returns:
-      tuple: A tuple containing k and the square of v.
-  """
-  return (k, v ** 2)
+    Args:
+        k (str): The string to be returned as the first element of the tuple.
+        v (int | float): The int or float to be
+        squared and returned as the second element of the tuple.
+    Returns:
+        tuple: A tuple containing k and the square of v.
+    """
+    return (k, v ** 2)
