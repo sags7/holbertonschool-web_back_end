@@ -1,4 +1,4 @@
-#!/sr/bin/env python3
+#!/usr/bin/env python3
 """
 This module creates an asynchronous generator that yields numbers
 from 0 to 10 with a delay of 1 second between each yield.
