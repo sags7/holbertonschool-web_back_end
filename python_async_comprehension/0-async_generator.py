@@ -8,7 +8,7 @@ import random
 from typing import Generator
 
 
-async def async_generator() -> Generator[int, None, None]:
+async def async_generator() -> Generator[float, None, None]:
     """
     An asynchronous generator that yields numbers from 0 to 10 with a delay.
     Yields:
