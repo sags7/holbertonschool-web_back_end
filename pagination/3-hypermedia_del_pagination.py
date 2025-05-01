@@ -51,9 +51,9 @@ class Server:
             index = 0
 
         assert isinstance(index, int)\
-          and index >= 0 and index < len(self.indexed_dataset())
+        and index >= 0 and index < len(self.indexed_dataset())
         assert isinstance(page_size, int)\
-          and page_size > 0 and page_size <= len(self.indexed_dataset())
+        and page_size > 0 and page_size <= len(self.indexed_dataset())
 
         dataset = self.indexed_dataset()
         current_index = index
@@ -62,8 +62,8 @@ class Server:
         while len(data) < page_size and current_index < len(dataset):
             item = dataset.get(current_index)
             if item:
-              data.append(item)
-              current_index += 1
+                data.append(item)
+                current_index += 1
 
         return {
             "index": index,
