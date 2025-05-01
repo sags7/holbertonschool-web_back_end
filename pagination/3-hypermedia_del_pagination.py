@@ -50,18 +50,20 @@ class Server:
         if index is None:
             index = 0
 
-        assert isinstance(index, int) and index >= 0 and index < len(self.indexed_dataset())
-        assert isinstance(page_size, int) and page_size > 0 and page_size <= len(self.indexed_dataset())
+        assert isinstance(index, int)\
+          and index >= 0 and index < len(self.indexed_dataset())
+        assert isinstance(page_size, int)\
+          and page_size > 0 and page_size <= len(self.indexed_dataset())
 
         dataset = self.indexed_dataset()
         current_index = index
         data = []
 
         while len(data) < page_size and current_index < len(dataset):
-          item = dataset.get(current_index)
-          if item:
-            data.append(item)
-            current_index += 1
+            item = dataset.get(current_index)
+            if item:
+              data.append(item)
+              current_index += 1
 
         return {
             "index": index,
