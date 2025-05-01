@@ -34,8 +34,8 @@ class Server:
         Function that returns the correct page of the dataset
         or an empty list if its out of range
         """
-        assert page > 0 and isinstance(page, int)
-        assert page_size > 0 and isinstance(page_size, int)
+        assert isinstance(page, int) and page > 0
+        assert isinstance(page_size, int) and page_size > 0
 
         data = self.dataset()
         start, end = index_range(page, page_size)
