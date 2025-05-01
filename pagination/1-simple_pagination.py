@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """
-This module contains 
+This module contains
 """
-index_range = __import__('0-simple_helper_function').index_range
 import csv
 import math
 from typing import List
+index_range = __import__('0-simple_helper_function').index_range
 
 
 class Server:
@@ -46,6 +46,4 @@ class Server:
             end = len(data)
 
         return data[start:end]
-
-
-            
+     
