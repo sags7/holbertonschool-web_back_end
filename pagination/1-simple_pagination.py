@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
-"""
-This module contains
+"""This module implements Implement a method named get_page
+that takes two integer arguments page with default value 1
+and page_size with default value 10.
 """
 import csv
 import math
@@ -9,8 +10,7 @@ index_range = __import__('0-simple_helper_function').index_range
 
 
 class Server:
-    """
-    Server class to paginate a database of popular baby names.
+    """Server class to paginate a database of popular baby names.
     """
     DATA_FILE = 'Popular_Baby_Names.csv'
 
@@ -18,20 +18,17 @@ class Server:
         self.__dataset = None
 
     def dataset(self) -> List[List]:
-        """
-        Cached dataset
+        """Cached dataset
         """
         if self.__dataset is None:
             with open(self.DATA_FILE) as file:
                 reader = csv.reader(file)
                 dataset = [row for row in reader]
             self.__dataset = dataset[1:]
-
         return self.__dataset
 
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
-        """
-        Function that returns the correct page of the dataset
+        """Function that returns the correct page of the dataset
         or an empty list if its out of range
         """
         assert isinstance(page, int) and page > 0
@@ -44,6 +41,5 @@ class Server:
             return []
         if end > len(data):
             end = len(data)
-
         return data[start:end]
      
