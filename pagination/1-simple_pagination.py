@@ -42,4 +42,3 @@ class Server:
         if end > len(data):
             end = len(data)
         return data[start:end]
-     
