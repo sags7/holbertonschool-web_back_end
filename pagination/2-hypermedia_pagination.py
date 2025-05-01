@@ -48,7 +48,7 @@ class Server:
         if end > len(data):
             end = len(data)
         return data[start:end]
-    
+
     def get_hyper(self, page: int = 1, page_size: int = 10) -> dict:
         """Returns a dictionary with information for
         pagination
