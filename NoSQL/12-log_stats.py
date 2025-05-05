@@ -5,7 +5,7 @@ Python script that provides some stats about Nginx logs stored in MongoDB
 from pymongo import MongoClient
 
 
-def count_documents(query: str):
+def count_documents(query: dict):
     """Counts documents in a MongoDB collection"""
     client = MongoClient("mongodb://localhost:27017/")
     collection = client.logs.nginx
