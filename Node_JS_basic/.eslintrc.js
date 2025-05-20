@@ -4,9 +4,6 @@ module.exports = {
     es6: true,
     jest: true,
   },
-  extends: [
-    'plugin:jest/all',
-  ],
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
