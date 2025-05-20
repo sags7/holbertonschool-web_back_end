@@ -7,7 +7,7 @@ function countStudents(filepath) {
     const students = lines.slice(1).map(line => line.split(','));
 
     const numberOfStudents = students.length;
-    process.stdout.log(`Number of students: ${numberOfStudents}`);
+    console.log(`Number of students: ${numberOfStudents}`);
 
     const fields = {};
     for (const student of students) {
@@ -22,7 +22,7 @@ function countStudents(filepath) {
 
     for (const field in fields) {
       const names = fields[field];
-      process.stdout.log(
+      console.log(
         `Number of students in ${field}: ${names.length}. List: ${names.join(', ')}`
       );
     }
