@@ -49,7 +49,7 @@ const app = http.createServer((req, res) => {
         res.end(`This is the list of our students\n${output}`);
       })
       .catch((err) => {
-        res.end('This is the list of our students\nCannot load the database');
+        res.end(err.message);
       });
   } else {
     res.writeHead(404, { 'Content-Type': 'text/plain' });
