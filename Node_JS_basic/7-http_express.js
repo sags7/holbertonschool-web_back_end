@@ -40,6 +40,11 @@ function countStudents(filepath) {
   });
 }
 
+app.get('/', (req, res) => {
+  res.type('text/plain');
+  res.send('Hello Holberton School!');
+});
+
 app.get('/students', (req, res) => {
   countStudents(databaseFile)
     .then((output) => {
