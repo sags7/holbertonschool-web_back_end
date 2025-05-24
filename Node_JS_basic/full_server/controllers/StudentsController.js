@@ -3,8 +3,8 @@ import readDatabase from '../utils';
 const databaseFile = process.argv[2];
 
 class StudentsController {
-  static getAllStudents(req, res) {
-    readDatabase(databaseFile)
+  static async getAllStudents(req, res) {
+    await readDatabase(databaseFile)
       .then((studentsByField) => {
         let output = 'This is the list of our students';
 
