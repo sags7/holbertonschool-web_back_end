@@ -1,43 +1,22 @@
-import fs from 'fs';
+import fs from 'fs/promises';
 
 async function readDatabase(filePath) {
-  return new Promise((resolve, reject) => {
-    fs.readFile(filePath, 'utf8', (err, data) => {
-      if (err) {
-        reject(new Error('Cannot load the database'));
-        return
+  try {
+    const data = await fs.readFile(filePath, 'utf8');
+    const lines = data.trim().split('\n');
+    const students = {};
+
+    for (let i = 1; i < lines.length; i += 1) {
+      const [firstname, , , field] = lines[i].split(',');
+      if (!students[field]) {
+        students[field] = [];
       }
-
-      const lines = data.split('\n').filter((line) => line.trim() !== '');
-      const header = lines[0].split(',');
-      const fieldIndex = header.indexOf('field');
-      const firstNameIndex = header.indexOf('firstname');
-
-      if (fieldIndex === -1 || firstNameIndex === -1) {
-        reject(new Error('Incorrect CSV file'));
-        return;
-      }
-
-      const result = {};
-
-      for (let i = 1; i < lines.length; i++) {
-        const columns = lines[i].split(',');
-
-        if (columns.length < Math.max(fieldIndex, firstNameIndex) + 1) continue;
-
-        const field = columns[fieldIndex].trim();
-        const firstName = columns[firstNameIndex].trim();
-
-        if (!result[field]) {
-          result[field] = [];
-        }
-
-        result[field].push(firstName);
-      }
-
-      resolve(result);
-    });
-  });
+      students[field].push(firstname);
+    }
+    return students;
+  } catch (error) {
+    throw new Error('Cannot load the database');
+  }
 }
 
 export default readDatabase;
