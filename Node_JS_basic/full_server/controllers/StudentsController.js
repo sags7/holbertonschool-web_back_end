@@ -19,7 +19,7 @@ class StudentsController {
 
         res.status(200).send(output);
       })
-      .catch(() => {
+      .catch((e) => {
         res.status(500).send('Cannot load the database');
       });
   }
@@ -37,7 +37,7 @@ class StudentsController {
         const studentList = studentsByField[major] || [];
         res.status(200).send(`List: ${studentList.join(', ')}`);
       })
-      .catch(() => {
+      .catch((err) => {
         res.status(500).send('Cannot load the database');
       });
   }
