@@ -19,8 +19,8 @@ class StudentsController {
 
         res.status(200).send(output);
       })
-      .catch((e) => {
-        res.status(500).send('Cannot load the database');
+      .catch(() => {
+        res.status(501).send('Cannot load the database');
       });
   }
 
@@ -28,7 +28,7 @@ class StudentsController {
     const { major } = req.params;
 
     if (major !== 'CS' && major !== 'SWE') {
-      res.status(500).send('Major parameter must be CS or SWE');
+      res.status(502).send('Major parameter must be CS or SWE');
       return;
     }
 
@@ -37,8 +37,8 @@ class StudentsController {
         const studentList = studentsByField[major] || [];
         res.status(200).send(`List: ${studentList.join(', ')}`);
       })
-      .catch((err) => {
-        res.status(500).send('Cannot load the database');
+      .catch(() => {
+        res.status(503).send('Cannot load the database');
       });
   }
 }
