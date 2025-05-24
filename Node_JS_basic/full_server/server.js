@@ -3,6 +3,12 @@ import routes from './routes/index.js';
 
 const app = express();
 const port = 1245;
+const databaseFile = process.argv[2] || '';
+
+app.use((req, res, next) => {
+  req.databaseFile = databaseFile;
+  next();
+});
 
 app.use('/', routes);
 
